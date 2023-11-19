@@ -15,11 +15,11 @@ class MyIP(commands.Cog):
     @commands.command()
     async def ip(self, ctx: commands.Context) -> None:
         # Check if the command is sent by the specific user
-        if ctx.author.id == config.OWNER_ID:
+        if ctx.author.id == config.OWNER_ID and ctx.channel.id == config.PRIVATE_CHANNEL_ID:
             # Get the public IP address using an external service
             try:
                 # Use an external service to get the public IP address
-                response = requests.get('https://api64.ipify.org?format=json')
+                response = requests.get('https://api.ipify.org?format=json')
                 ip_address = response.json()['ip']
                 message = await ctx.send(f'Your current public IP address is: {ip_address}')
                 await ctx.message.delete()
@@ -29,8 +29,6 @@ class MyIP(commands.Cog):
                 await message.delete()
             except Exception as e:
                 await ctx.send('Error fetching IP address. Please try again later.')
-        else:
-            await ctx.send('You do not have permission to use this command.')
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(MyIP(bot))
