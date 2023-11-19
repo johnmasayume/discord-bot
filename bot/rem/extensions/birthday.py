@@ -79,9 +79,5 @@ class BirthdayCog(commands.Cog):
             # Wait for the next day
             await asyncio.sleep(60 * 24)  # 24 hours in minutes
 
-    async def save_birthday_data(self, data):
-        with open(self.get_birthday_data_path(), 'w') as file:
-            json.dump(data, file)
-
 async def setup(bot):
     await bot.add_cog(BirthdayCog(bot))
