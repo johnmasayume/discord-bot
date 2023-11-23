@@ -40,14 +40,14 @@ class BirthdayCog(commands.Cog):
             birthday_data = await self.get_birthday_data()
 
             # Specify the channel ID where you want to send birthday messages
-            target_channel_id = config.PRIVATE_CHANNEL_ID
+            target_channel_id = config.GENERAL_CHANNEL_ID
             target_channel = self.bot.get_channel(target_channel_id)
             if not target_channel:
                 print(f"Invalid channel ID: {target_channel_id}")
                 return
 
             # Check if today is a birthday
-            today_date = now.strftime("%Y-%m-%d")
+            today_date = now.strftime("%m-%d")
             if today_date in birthday_data:
                 today_birthdays = birthday_data[today_date]
 
@@ -70,11 +70,12 @@ class BirthdayCog(commands.Cog):
                         # Tag the owner and send names
                         owner_mention = f"<@{owner_id}>"
                         names_str = ', '.join(names)
-                        personal_channel_id = config.PRIVATE_CHANNEL_ID
-                        personal_channel = self.bot.get_channel(personal_channel_id)
-                        if personal_channel:
-                            print(f"Sending Personal birthday message to {owner_mention} in {personal_channel.name}")
-                            await personal_channel.send(f"Reminder, it's the birthday of {owner_mention}'s friends: {names_str}")
+                        # personal_channel_id = config.PRIVATE_CHANNEL_ID
+                        # personal_channel = self.bot.get_channel(personal_channel_id)
+                        owner = await self.bot.fetch_user(config.OWNER_ID)
+                        if owner:
+                            print(f"Sending Personal birthday message to {owner_mention} in {owner.name}")
+                            await owner.send(f"Reminder, it's the birthday of {owner_mention}'s friends: {names_str}")
 
             # Wait for the next day
             await asyncio.sleep(60 * 24)  # 24 hours in minutes

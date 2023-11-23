@@ -18,16 +18,23 @@ class ExchangeRate(commands.Cog):
     async def check_exchange_rate(self):
         now = datetime.now()
         try:
+            target = "JPY"
+            source = "MYR"
+            target_rate = 31.4
+            target_amount = 1000
             wise_api_url = "https://api.transferwise.com"
-            rates_url = "/v1/rates?source=JPY&target=MYR"
-            rates_url2 = "/v1/rates?source=MYR&target=JPY"
-            comparison_url = "/v3/comparisons/?sourceCurrency=GBP&targetCurrency=EUR&sendAmount=10000"
+            rates_url = f"/v1/rates?source={source}&target={target}"
+            comparison_url = f"/v3/comparisons/?sourceCurrency={source}&targetCurrency={target}&sendAmount={target_amount}"
 
-            headers = {"Authorization": "Bearer 2b6c4ad4-8ec1-49d3-a484-8bef90d07461"}
-            response = requests.get(wise_api_url+rates_url2, headers=headers)
+            headers = {"Authorization": f"Bearer {config.WISE_API_TOKEN}"}
+            response = requests.get(wise_api_url+rates_url, headers=headers).json()
             owner = await self.bot.fetch_user(config.OWNER_ID)
-            # await owner.send(response.json())
-            pprint(response.json())
+            wise_rate = float(response[0]["rate"])
+            wise_rate_time = response[0]["time"]
+
+            if wise_rate <= target_rate:
+                await owner.send(f"is time to exchange money in wise, {source} to {target} is {wise_rate}")
+            pprint(f"{wise_rate_time} - {source} to {target} is {wise_rate}")
 
         except Exception as e:
             await owner.send('Error fetching exchange rate. Please try again later.')

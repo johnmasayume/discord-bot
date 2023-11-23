@@ -1,14 +1,78 @@
 {
-    "2023-11-20": {
-      "discord": [134218141243801600, 270573041908580353],
+    "04-14": {
+      "discord": [
+        134218141243801600
+      ],
       "personal": {
-        "name": ["john", "test1", "test2"]
+        "name": ["john", "my mum"]
       }
     },
-    "2023-11-21": {
-      "discord": [134218141243801600, 270573041908580353],
+    "12-08": {
       "personal": {
-        "name": ["john234", "test1test", "test4"]
+        "name": ["yukiko", "poh kheng"]
+      }
+    },
+    "11-22": {
+      "personal": {
+        "name": ["hiroshi"]
+      }
+    },
+    "04-19": {
+      "personal": {
+        "name": ["yumiko"]
+      }
+    },
+    "08-06": {
+      "personal": {
+        "name": ["sharon"]
+      }
+    },
+    "11-19": {
+      "discord": [
+        249414332067086336
+      ],
+      "personal": {
+        "name": ["benji"]
+      }
+    },
+    "02-19": {
+      "discord": [
+        151966104984616960
+      ],
+      "personal": {
+        "name": ["weixian"]
+      }
+    },
+    "04-10": {
+      "discord": [
+        408956947115540482
+      ],
+      "personal": {
+        "name": ["ah siang"]
+      }
+    },
+    "01-30": {
+      "discord": [
+        152250641253662722
+      ],
+      "personal": {
+        "name": ["jian lee"]
+      }
+    },
+    "01-31": {
+      "discord": [
+        152347128721702912
+      ],
+      "personal": {
+        "name": ["jasper"]
+      }
+    },
+    "01-20": {
+      "discord": [
+        151956710141984769
+      ],
+      "personal": {
+        "name": ["ting wei"]
       }
     }
   }
