@@ -22,6 +22,26 @@
         "name": ["yumiko"]
       }
     },
+    "06-07": {
+      "personal": {
+        "name": ["yumeji"]
+      }
+    },
+    "01-14": {
+      "personal": {
+        "name": ["uta"]
+      }
+    },
+    "09-26": {
+      "personal": {
+        "name": ["hanabi"]
+      }
+    },
+    "04-22": {
+      "personal": {
+        "name": ["rei"]
+      }
+    },
     "08-06": {
       "personal": {
         "name": ["sharon"]
@@ -48,7 +68,7 @@
         408956947115540482
       ],
       "personal": {
-        "name": ["ah siang"]
+        "name": ["ah siang", "mako"]
       }
     },
     "01-30": {
@@ -73,6 +93,46 @@
       ],
       "personal": {
         "name": ["ting wei"]
+      }
+    },
+    "08-29": {
+      "discord": [
+        313038021509513226
+      ],
+      "personal": {
+        "name": ["ash"]
+      }
+    },
+    "07-10": {
+      "discord": [
+        234970161730420736
+      ],
+      "personal": {
+        "name": ["edmund tan"]
+      }
+    },
+    "06-29": {
+      "discord": [
+        178360474918846464
+      ],
+      "personal": {
+        "name": ["julian"]
+      }
+    },
+    "06-19": {
+      "discord": [
+        203459807464783872
+      ],
+      "personal": {
+        "name": ["andrea"]
+      }
+    },
+    "06-04": {
+      "discord": [
+        496599902273667085
+      ],
+      "personal": {
+        "name": ["terry tan"]
       }
     }
   }

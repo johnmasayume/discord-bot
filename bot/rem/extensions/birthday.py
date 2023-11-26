@@ -34,7 +34,10 @@ class BirthdayCog(commands.Cog):
     @tasks.loop(minutes=1)  # Run every minute
     async def check_birthdays(self):
         now = datetime.now()
-        print(f"Birthday Checking - {now}")
+        # Format the current date and time to match the desired format
+        formatted_datetime = now.strftime("%Y-%m-%d %H:%M:%S.%f")
+
+        print(f"Birthday Checking - {formatted_datetime}")
         if now.hour == 0 and now.minute == 0:
             print("Checking birthdays...")
             birthday_data = await self.get_birthday_data()
@@ -75,7 +78,7 @@ class BirthdayCog(commands.Cog):
                         owner = await self.bot.fetch_user(config.OWNER_ID)
                         if owner:
                             print(f"Sending Personal birthday message to {owner_mention} in {owner.name}")
-                            await owner.send(f"Reminder, it's the birthday of {owner_mention}'s friends: {names_str}")
+                            await owner.send(f"Reminder, it's the birthday of {owner_mention}'s family/friends: {names_str}")
 
             # Wait for the next day
             await asyncio.sleep(60 * 24)  # 24 hours in minutes
