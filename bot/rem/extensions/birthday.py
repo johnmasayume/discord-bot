@@ -5,7 +5,9 @@ import json
 import os
 import config
 import asyncio
+import pytz
 from datetime import datetime, timedelta
+from util import log_to_discord_channel
 
 class BirthdayCog(commands.Cog):
     def __init__(self, bot):
@@ -35,9 +37,25 @@ class BirthdayCog(commands.Cog):
     async def check_birthdays(self):
         now = datetime.now()
         # Format the current date and time to match the desired format
-        formatted_datetime = now.strftime("%Y-%m-%d %H:%M:%S.%f")
+        formatted_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
+        date_format = "%Y-%m-%d %H:%M:%S"
+        # Convert string to datetime object (assuming the input string is in UTC)
+        utc_datetime = datetime.strptime(formatted_datetime, date_format).replace(tzinfo=pytz.utc)
 
+        # Specify the target time zone (GMT+8)
+        target_timezone = pytz.timezone('Asia/Shanghai')
+
+        # Convert the datetime object to the target time zone
+        converted_datetime = utc_datetime.astimezone(target_timezone)
+
+        # Format the converted datetime to the desired output format
+        formatted_datetime = converted_datetime.strftime(date_format)
+        category = self.bot.get_channel(config.LOG_CHANNEL_CATEGORY_ID)
+
+        message = f"Birthday Checking"
+        await log_to_discord_channel(category, message, config.LOG_CHANNEL_ID_BIRTHDAY, True)
         print(f"Birthday Checking - {formatted_datetime}")
+
         if now.hour == 0 and now.minute == 0:
             print("Checking birthdays...")
             birthday_data = await self.get_birthday_data()
