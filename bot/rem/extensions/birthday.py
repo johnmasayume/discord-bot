@@ -36,25 +36,11 @@ class BirthdayCog(commands.Cog):
     @tasks.loop(minutes=1)  # Run every minute
     async def check_birthdays(self):
         now = datetime.now()
-        # Format the current date and time to match the desired format
-        formatted_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
-        date_format = "%Y-%m-%d %H:%M:%S"
-        # Convert string to datetime object (assuming the input string is in UTC)
-        utc_datetime = datetime.strptime(formatted_datetime, date_format).replace(tzinfo=pytz.utc)
-
-        # Specify the target time zone (GMT+8)
-        target_timezone = pytz.timezone('Asia/Shanghai')
-
-        # Convert the datetime object to the target time zone
-        converted_datetime = utc_datetime.astimezone(target_timezone)
-
-        # Format the converted datetime to the desired output format
-        formatted_datetime = converted_datetime.strftime(date_format)
         category = self.bot.get_channel(config.LOG_CHANNEL_CATEGORY_ID)
 
         message = f"Birthday Checking"
         await log_to_discord_channel(category, message, config.LOG_CHANNEL_ID_BIRTHDAY, True)
-        print(f"Birthday Checking - {formatted_datetime}")
+        print(f"Birthday Checking - {now}")
 
         if now.hour == 0 and now.minute == 0:
             print("Checking birthdays...")

@@ -1,10 +1,23 @@
 from decouple import config
 
-EXTENSIONS = ("extensions.myip",
-              "extensions.test",
-              "extensions.birthday",
-              "extensions.exchangerate",
-              "extensions.translation",)
+EXTENSIONS_DIR = "extensions."
+EXTENSIONS = (
+    "myip",
+    "test",
+    "birthday",
+    "exchangerate",
+    "translation",
+    "status",
+)
+
+# List of statuses
+STATUS_LIST = [
+    "Playing Honkai: Star Rail",
+    "Playing Genshin Impact",
+    "Playing MARVEL SNAP",
+    "Spying you",
+]
+
 BOT_TOKEN = config('BOT_TOKEN')
 OWNER_ID = int(config('OWNER_ID'))
 WISE_API_TOKEN = config('WISE_API_TOKEN')

@@ -12,8 +12,9 @@ bot = commands.Bot(
 )
 
 @bot.event
-async def setup_hook() -> None:
+# async def setup_hook() -> None:
+async def on_ready():
     for extension in config.EXTENSIONS:
-        await bot.load_extension(extension)
+        await bot.load_extension(config.EXTENSIONS_DIR+extension)
 
 bot.run(config.BOT_TOKEN)
