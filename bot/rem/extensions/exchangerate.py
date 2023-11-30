@@ -47,7 +47,7 @@ class ExchangeRate(commands.Cog):
             if wise_rate <= target_rate:
                 await owner.send(f"is time to exchange money in wise, {source} to {target} is {wise_rate}")
             
-            await log_to_discord_channel(category, f"{source} to {target} is {wise_rate}", config.LOG_CHANNEL_ID_EXCHANGE_RATE, True)
+            await log_to_discord_channel(category, f"{source} to {target} is {wise_rate}, target rate {target_rate}", config.LOG_CHANNEL_ID_EXCHANGE_RATE, True)
             pprint(f"{formatted_datetime} - {source} to {target} is {wise_rate}")
 
         except Exception as e:
