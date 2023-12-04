@@ -10,15 +10,17 @@ from util import log_to_discord_channel
 class ExchangeRate(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.log_category_id = config.LOG_CHANNEL_CATEGORY_ID
+        self.log_channel_id = config.LOG_CHANNEL_ID_EXCHANGE_RATE
         self.check_exchange_rate.start()
 
     def cog_unload(self):
         self.check_exchange_rate.cancel()
 
-    @tasks.loop(minutes=1)  # Run every minute
+    @tasks.loop(hours=1)  # Run every minute
     async def check_exchange_rate(self):
         now = datetime.now()
-        category = self.bot.get_channel(config.LOG_CHANNEL_CATEGORY_ID)
+        category = self.bot.get_channel(self.log_category_id)
 
         # Format the current date and time to match the desired format
         try:
@@ -47,7 +49,7 @@ class ExchangeRate(commands.Cog):
             if wise_rate <= target_rate:
                 await owner.send(f"is time to exchange money in wise, {source} to {target} is {wise_rate}")
             
-            await log_to_discord_channel(category, f"{source} to {target} is {wise_rate}, target rate {target_rate}", config.LOG_CHANNEL_ID_EXCHANGE_RATE, True)
+            await log_to_discord_channel(category, f"{source} to {target} is {wise_rate}, target rate {target_rate}", self.log_channel_id, delete=True, delete_sec=3575)
             pprint(f"{formatted_datetime} - {source} to {target} is {wise_rate}")
 
         except Exception as e:

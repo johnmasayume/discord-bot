@@ -12,9 +12,9 @@ EXTENSIONS = (
 
 # List of statuses
 STATUS_LIST = [
-    "Playing Honkai: Star Rail",
-    "Playing Genshin Impact",
-    "Playing MARVEL SNAP",
+    "Honkai: Star Rail",
+    "Genshin Impact",
+    "MARVEL SNAP",
     "Spying you",
 ]
 
