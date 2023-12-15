@@ -24,9 +24,9 @@ class ExchangeRate(commands.Cog):
 
         # Format the current date and time to match the desired format
         try:
-            target = "JPY"
-            source = "MYR"
-            target_rate = 31.2
+            target = "MYR"
+            source = "JPY"
+            target_rate = 0.0315
             target_amount = 1000
             wise_api_url = "https://api.transferwise.com"
             rates_url = f"/v1/rates?source={source}&target={target}"
