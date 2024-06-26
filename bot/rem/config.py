@@ -8,7 +8,9 @@ EXTENSIONS = (
     "exchangerate",
     "translation",
     "status",
-    "palworld_rcon"
+    # "palworld_rcon",
+    # "palworld_backup",
+    # "palworld_restart",
 )
 
 # List of statuses
@@ -18,6 +20,7 @@ STATUS_LIST = [
     "MARVEL SNAP",
     "Spying you",
     "Palworld",
+    "Wuthering Waves"
 ]
 
 BOT_TOKEN = config('BOT_TOKEN')
@@ -29,6 +32,8 @@ GENERAL_CHANNEL_ID = int(config('GENERAL_CHANNEL_ID'))
 LOG_CHANNEL_CATEGORY_ID = int(config('LOG_CHANNEL_CATEGORY_ID'))
 LOG_CHANNEL_ID_BIRTHDAY = int(config('LOG_CHANNEL_ID_BIRTHDAY'))
 LOG_CHANNEL_ID_EXCHANGE_RATE = int(config('LOG_CHANNEL_ID_EXCHANGE_RATE'))
+LOG_CHANNEL_ID_PALWORLD_SERVER_RESTART = int(config('LOG_CHANNEL_ID_PALWORLD_SERVER_RESTART'))
+LOG_CHANNEL_ID_PALWORLD_SERVER_BACKUP = int(config('LOG_CHANNEL_ID_PALWORLD_SERVER_BACKUP'))
 
 RCON_IP = config('RCON_IP')
 RCON_PORT = int(config('RCON_PORT'))

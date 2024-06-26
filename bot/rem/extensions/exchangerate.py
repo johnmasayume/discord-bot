@@ -17,7 +17,7 @@ class ExchangeRate(commands.Cog):
     def cog_unload(self):
         self.check_exchange_rate.cancel()
 
-    @tasks.loop(hours=1)  # Run every minute
+    @tasks.loop(hours=3)  # Run every 3 hour
     async def check_exchange_rate(self):
         now = datetime.now()
         category = self.bot.get_channel(self.log_category_id)
@@ -26,7 +26,7 @@ class ExchangeRate(commands.Cog):
         try:
             target = "MYR"
             source = "JPY"
-            target_rate = 0.0315
+            target_rate = 0.0290
             target_amount = 1000
             wise_api_url = "https://api.transferwise.com"
             rates_url = f"/v1/rates?source={source}&target={target}"
