@@ -20,7 +20,8 @@ STATUS_LIST = [
     "MARVEL SNAP",
     "Spying you",
     "Palworld",
-    "Wuthering Waves"
+    "Wuthering Waves",
+    "Pokemon TCG Live"
 ]
 
 WISE_TARGET = "MYR"
