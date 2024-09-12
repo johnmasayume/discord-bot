@@ -14,7 +14,7 @@ class UpdateBotStatus(commands.Cog):
     def cog_unload(self):
         self.update_status.cancel()
 
-    @tasks.loop(hours=1)  # Run every minute
+    @tasks.loop(hours=1)  # Run every hour
     async def update_status(self):
         new_status = random.choice(config.STATUS_LIST)
         await self.bot.change_presence(activity=discord.Game(name=new_status))
