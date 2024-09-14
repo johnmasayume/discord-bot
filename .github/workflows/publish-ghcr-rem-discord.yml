@@ -29,15 +29,6 @@ jobs:
           context: ./bot/rem
           push: true
           tags: ghcr.io/${{ github.repository }}/discord-bot-rem:latest
-          secrets: |
-            BOT_TOKEN=${{ secrets.BOT_TOKEN }}
-            OWNER_ID=${{ secrets.OWNER_ID }}
-            WISE_API_TOKEN=${{ secrets.WISE_API_TOKEN }}
-            PRIVATE_CHANNEL_ID=${{ secrets.PRIVATE_CHANNEL_ID }}
-            GENERAL_CHANNEL_ID=${{ secrets.GENERAL_CHANNEL_ID }}
-            LOG_CHANNEL_CATEGORY_ID=${{ secrets.LOG_CHANNEL_CATEGORY_ID }}
-            LOG_CHANNEL_ID_BIRTHDAY=${{ secrets.LOG_CHANNEL_ID_BIRTHDAY }}
-            LOG_CHANNEL_ID_EXCHANGE_RATE=${{ secrets.LOG_CHANNEL_ID_EXCHANGE_RATE }}
 
       - name: Verify image
         run: docker images
