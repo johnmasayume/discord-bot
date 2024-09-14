@@ -1,0 +1,15 @@
+version: '3'
+services:
+  bot:
+    build: .
+    container_name: discord-bot-rem
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - OWNER_ID=${OWNER_ID}
+      - WISE_API_TOKEN=${WISE_API_TOKEN}
+      - PRIVATE_CHANNEL_ID=${PRIVATE_CHANNEL_ID}
+      - GENERAL_CHANNEL_ID=${GENERAL_CHANNEL_ID}
+      - LOG_CHANNEL_CATEGORY_ID=${LOG_CHANNEL_CATEGORY_ID}
+      - LOG_CHANNEL_ID_BIRTHDAY=${LOG_CHANNEL_ID_BIRTHDAY}
+      - LOG_CHANNEL_ID_EXCHANGE_RATE=${LOG_CHANNEL_ID_EXCHANGE_RATE}
+    command: python main.py
