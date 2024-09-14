@@ -1,7 +1,7 @@
 version: '3'
 services:
   bot:
-    build: .
+    image: ghcr.io/johnmasayume/discord-bot-rem:latest
     container_name: discord-bot-rem
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
@@ -12,4 +12,4 @@ services:
       - LOG_CHANNEL_CATEGORY_ID=${LOG_CHANNEL_CATEGORY_ID}
       - LOG_CHANNEL_ID_BIRTHDAY=${LOG_CHANNEL_ID_BIRTHDAY}
       - LOG_CHANNEL_ID_EXCHANGE_RATE=${LOG_CHANNEL_ID_EXCHANGE_RATE}
-    command: python main.py
+    restart: unless-stopped
