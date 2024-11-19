@@ -21,7 +21,7 @@ class MyIP(commands.Cog):
                 # Use an external service to get the public IP address
                 response = requests.get('https://api.ipify.org?format=json')
                 ip_address = response.json()['ip']
-                message = await ctx.send(f'Your current public IP address is: {ip_address}')
+                message = await ctx.send(f'Version 1.0, Your current public IP address is: {ip_address}')
                 await ctx.message.delete()
 
                 # Wait for 1 minute (60 seconds) and then delete the message        

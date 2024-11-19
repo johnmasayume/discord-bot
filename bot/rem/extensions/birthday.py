@@ -35,13 +35,16 @@ class BirthdayCog(commands.Cog):
 
     @tasks.loop(minutes=1)  # Run every minute
     async def check_birthdays(self):
-        now = datetime.now()
+        # Set timezone to Kuala Lumpur (GMT+8)
+        kuala_lumpur_tz = pytz.timezone("Asia/Kuala_Lumpur")
+        now = datetime.now(kuala_lumpur_tz)
         category = self.bot.get_channel(config.LOG_CHANNEL_CATEGORY_ID)
 
         message = f"Birthday Checking"
         await log_to_discord_channel(category, message, config.LOG_CHANNEL_ID_BIRTHDAY, True)
         print(f"Birthday Checking - {now}")
 
+        # Check for Kuala Lumpur midnight
         if now.hour == 0 and now.minute == 0:
             print("Checking birthdays...")
             birthday_data = await self.get_birthday_data()
