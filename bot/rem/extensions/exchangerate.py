@@ -17,7 +17,7 @@ class ExchangeRate(commands.Cog):
     def cog_unload(self):
         self.check_exchange_rate.cancel()
 
-    @tasks.loop(hours=3)  # Run every 3 hour
+    @tasks.loop(hours=24)  # Run every 24 hour
     async def check_exchange_rate(self):
         now = datetime.now()
         category = self.bot.get_channel(self.log_category_id)
