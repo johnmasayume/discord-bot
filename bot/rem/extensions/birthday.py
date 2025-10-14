@@ -1,5 +1,4 @@
 # birthday_cog.py
-import discord
 from discord.ext import commands, tasks
 import json
 import os
@@ -41,14 +40,14 @@ class BirthdayCog(commands.Cog):
         category = self.bot.get_channel(config.LOG_CHANNEL_CATEGORY_ID)
 
         message = f"Birthday Checking"
+        birthday_data = await self.get_birthday_data()
         await log_to_discord_channel(category, message, config.LOG_CHANNEL_ID_BIRTHDAY, True)
         print(f"Birthday Checking - {now}")
 
         # Check for Kuala Lumpur midnight
         if now.hour == 0 and now.minute == 0:
             print("Checking birthdays...")
-            birthday_data = await self.get_birthday_data()
-
+            
             # Specify the channel ID where you want to send birthday messages
             target_channel_id = config.GENERAL_CHANNEL_ID
             target_channel = self.bot.get_channel(target_channel_id)
