@@ -1,11 +1,7 @@
 import discord
-from discord.ext import commands, tasks
-import json
-import os
-import config
 import asyncio
-import pytz
-from datetime import datetime, timedelta
+
+
 
 MAX_RETRIES = 5
 RETRY_DELAY = 5  # seconds
