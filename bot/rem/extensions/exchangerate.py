@@ -53,7 +53,11 @@ class ExchangeRate(commands.Cog):
 
         except Exception as e:
             pprint(e)
-            await owner.send('Error fetching exchange rate. Please try again later.')
+            try:
+                owner = await self.bot.fetch_user(config.OWNER_ID)
+                await owner.send(f"Exchange rate error: {e}")
+            except:
+                pass
 
 async def setup(bot):
     await bot.add_cog(ExchangeRate(bot))
