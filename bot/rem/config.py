@@ -23,7 +23,7 @@ STATUS_LIST = [
 
 WISE_TARGET = config('WISE_TARGET')
 WISE_SOURCE = config('WISE_SOURCE')
-WISE_TARGET_RATE = int(config('WISE_TARGET_RATE'))
+WISE_TARGET_RATE = float(config('WISE_TARGET_RATE'))
 WISE_TARGET_AMOUNT = int(config('WISE_TARGET_AMOUNT'))
 WISE_API_URL = "https://api.transferwise.com"
 
